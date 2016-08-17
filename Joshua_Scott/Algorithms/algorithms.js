@@ -178,3 +178,121 @@ function popFront(){
     console.log('Pop:', poparr)
 }
 popFront();
+
+//Insert At
+// Given array, index, and one additional value, insert the value into array at given index.
+function insertAt(){
+    var myarr = [5,10,25,88,100];
+    var idx = 2;
+    var val = 55;
+
+    for (var i = myarr.length; i > idx; i --){
+        myarr[i] = myarr[i-1];
+    }
+    myarr[idx] = val;
+    console.log(myarr)
+}
+insertAt();
+
+// Remove At
+// Given array and an index in the array, remove and return the array value for that index. Do this without using built-in array methods except pop(). Think of PopFront(arr) as equivalent to RemoveAt(arr,0).
+function removeAt(){
+    var arr = [5,30,55,60,84]
+    var idx = 2;
+    var val = arr[idx];
+
+    for(var i = idx; i < arr.length; i++){
+        arr[i] = arr[i+1];
+    }
+    arr.length = arr.length-1;
+    console.log(arr, val)
+}
+removeAt();
+
+// Swap Array Pairs
+// Swap positions of successive pairs of values of given array. If length is odd, do not change final element. For [1,2,3,4], return [2,1,4,3]. For [false,true,42], return [true,false,42].
+function SwapPair(){
+    var arr = [2,5,8,9,22,55,88,399,450];
+    var a = 0;
+    var b = 0;
+
+    for (var i = 0; i < arr.length; i++){
+        if(arr[i] % 2 !==0 ){
+            a = arr[i];
+            b = arr[i-1];
+            arr[i] = b;
+            arr[i-1] = a;
+        }
+    }
+    console.log(arr)
+}
+SwapPair();
+
+// Array Remove Duplicates
+
+// Reverse array
+
+// Remove Negative
+function removeNegative() {
+    var arr = [-5,-20,-55,-90,-40,-700];
+    var count = 0;
+
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] >= 0) {
+            console.log('Count before assignment: ' + count);
+            arr[count++] = arr[i];
+            console.log('Count after assignment: ' + count);
+            console.log('arr is currently: ' + arr);
+        }
+    }
+    arr.length = count;
+    return arr;
+}
+console.log(removeNegative());
+
+function ReverseArr(){
+    var arr = [1,2,3,4,5,6];
+    // var len = arr.length-1;
+
+    for(var i = 0; i < Math.floor(arr.length/2); i++ ){
+            var temp = arr[i];
+            arr[i] = arr[arr.length-1-i];
+            arr[arr.length-1-i] = temp;
+            // len--;
+
+    }
+    console.log(arr);
+}
+ReverseArr();
+
+// Second-to-last
+// Return the second-to-last element of an array. Given [42,true,4,"Liam",7], return "Liam". If array is too short, return null.
+function secontolast() {
+    var arr = [5,10,55];
+    var val;
+
+    if (arr.length > 1){
+        val = arr[arr.length-2]
+    }else{
+        val = null;
+    }
+    console.log(val);
+}
+secontolast();
+
+// Nth-to-last
+// Return the element that is N-from-array’s-end. Given ([5,2,3,6,4,9,7],3), return 4. If the array is too short, return null.
+
+function nfromlast() {
+    var arr = [5,10,55,22,777];
+    var n = 6;
+    var val;
+
+    if (arr.length > n-1){
+        val = arr[arr.length-n]
+    }else{
+        val = null;
+    }
+    console.log(val);
+}
+nfromlast();
